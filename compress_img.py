@@ -4,15 +4,18 @@ from PIL import Image, ImageSequence
 from alive_progress import alive_bar
 from termcolor import colored
 
-def compress_image(input_path, output_path, quality=75):
+# Increase decompression limit
+Image.MAX_IMAGE_PIXELS = None
+
+def compress_image(input_path, output_path, quality=85):
     with Image.open(input_path) as img:
         img.save(output_path, quality=quality, optimize=True)
 
-def convert_png_to_webp(input_path, output_path, quality=75):
+def convert_png_to_webp(input_path, output_path, quality=85):
     with Image.open(input_path) as img:
         img.save(output_path, 'webp', quality=quality, optimize=True)
 
-def convert_png_to_jpg(input_path, output_path, quality=75):
+def convert_png_to_jpg(input_path, output_path, quality=85):
     with Image.open(input_path) as img:
         rgb_img = img.convert('RGB')
         rgb_img.save(output_path, quality=quality, optimize=True)
@@ -30,7 +33,7 @@ def has_transparency(img):
         return True
     return False
 
-def compress_images_in_directory(directory, quality=75):
+def compress_images_in_directory(directory, quality=85):
     supported_formats = ('.jpg', '.jpeg', '.png', '.webp', '.jfif', '.gif')
 
     pre_directory = os.path.join(directory, 'pre')
@@ -103,6 +106,7 @@ def compress_images_in_directory(directory, quality=75):
         print(colored(f"Total GIF files compressed: {gif_compressed_count}", "red"))
 
 if __name__ == "__main__":
-    directory = r"C:\\\Walls"
-    quality = 75
+    directory = r"F:\\\Walls"
+    #directory = r"C:\\Users\\ZnK\\Downloads\\pn"
+    quality = 85
     compress_images_in_directory(directory, quality)
