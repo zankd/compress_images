@@ -1,6 +1,6 @@
 Image Compression Script
 
-This Python script compresses image files within a specified directory. It supports various image formats, including PNG, JPEG, WebP, and GIF, optimizing them to reduce file sizes while maintaining acceptable quality. Additionally, it handles PNG files with transparency by converting them to WebP format, and it can optimize GIFs.
+This Python script compresses image files within a specified directory. It supports various image formats, including PNG, JPEG, WebP, and GIF, optimizing them to reduce file sizes while maintaining acceptable quality. Additionally, it handles PNG files with transparency by converting them to WebP format, and also can optimize GIFs.
 
 Setup and Initialization:
 
